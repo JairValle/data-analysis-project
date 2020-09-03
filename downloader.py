@@ -8,8 +8,9 @@ def get_dataframe_url (url_data):
     url = url_base
     response = requests.get(url)
     if response.status_code == 200:
-        return response.json()
+        return response.csv()
     return None
+
 
 def download_data_frame(data_frame_url):
     response = requests.get(data_frame_url)
@@ -28,12 +29,8 @@ def data_frame_filename():
     return Covid
 
 # Variables
-#url_base = 'http://galileoguzman.com/data/covid19_tweets.csv'
-url_base =  input('Escribe la dirección de la pagína web: ')
+url_base = 'http://galileoguzman.com/data/covid19_tweets.csv'
+#url_base =  input('Escribe la dirección de la pagína web: ')
 
-data_frame = get_dataframe_url (url_base)
-if data_frame:
-    data_frame_url = data_frame_url
-    download_data_frame(data_frame_url)
-else:
-    print('Data not found')
+data_frame = get_dataframe_url(url_base)
+download_data_frame(data_frame)
